@@ -36,7 +36,32 @@ def dimensoesObjeto():
 
 # inicio da função pesoObjeto()
 def pesoObjeto():
-    print('')
+    global peso
+    global multiplicador
+    while True:
+        try: 
+            peso = float(input('Digite o peso do objeto (em kg): '))
+            
+        except ValueError:
+            print('Você digitou o peso do objeto com valor não numérico')
+            print('Por favor, entre com o peso desejado novamente.')
+            
+        else: 
+            if peso <= 0.1:
+                multiplicador = 1
+                break
+            elif 0.1 <= peso < 1:
+                multiplicador = 1.5
+                break
+            elif 1 <= peso <= 10:
+                multiplicador = 2
+                break
+            elif 10 <= peso < 30:
+                multiplicador = 3
+                break
+            else:
+                print('Não aceitamos objetos tão pesados.')
+                print('Entre com o peso desejado novamente.')
 # Fim da função pesoObjeto()
 
 # inicio da função rotaObjeto()
