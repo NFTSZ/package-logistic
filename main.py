@@ -23,7 +23,7 @@ def dimensoesObjeto():
             elif 1000 <= volume < 10000:
                 valor = 20
                 break
-            elif 10000 <- volume <= 30000:
+            elif 10000 <= volume <= 30000:
                 valor = 30
                 break
             elif 30000 <= volume < 100000:
