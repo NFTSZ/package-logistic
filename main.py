@@ -1,6 +1,5 @@
 # inicio da função dimensoesObjeto()
 def dimensoesObjeto():
-    global volume
     global valor
     while True: 
         try: 
@@ -36,8 +35,7 @@ def dimensoesObjeto():
 
 # inicio da função pesoObjeto()
 def pesoObjeto():
-    global peso
-    global multiplicador
+    global multiplicadorPeso
     while True:
         try: 
             peso = float(input('Digite o peso do objeto (em kg): '))
@@ -48,16 +46,16 @@ def pesoObjeto():
             
         else: 
             if peso <= 0.1:
-                multiplicador = 1
+                multiplicadorPeso = 1
                 break
             elif 0.1 <= peso < 1:
-                multiplicador = 1.5
+                multiplicadorPeso = 1.5
                 break
-            elif 1 <= peso <= 10:
-                multiplicador = 2
+            elif 1 <= peso < 10:
+                multiplicadorPeso = 2
                 break
             elif 10 <= peso < 30:
-                multiplicador = 3
+                multiplicadorPeso = 3
                 break
             else:
                 print('Não aceitamos objetos tão pesados.')
@@ -66,17 +64,48 @@ def pesoObjeto():
 
 # inicio da função rotaObjeto()
 def rotaObjeto():
-    print('')
+    global multiplicadorRota
+    while True:
+        rotas = ['br', 'bs', 'rb', 'rs', 'sr', 'sb']
+        print('Selecione uma rota: ')
+        print('BR - De Brasília para Rio de Janeiro')
+        print('BS - De Brasília para São Paulo')
+        print('RB - De Rio de Janeiro para Brasília')
+        print('RS - De Rio de Janeiro para São Paulo')
+        print('SR - De São Paulo para Rio de Janeiro')
+        print('SB - De São Paulo para Brasília')
+        rota = str(input('>>> ')).lower()
+        
+        if rota in rotas:
+            if rota == 'rs':
+                multiplicadorRota = 1
+            elif rota == 'sr' :
+                multiplicadorRota = 1
+            elif rota == 'bs':
+                multiplicadorRota = 1.2
+            elif rota == 'sb':
+                multiplicadorRota = 1.2
+            elif rota == 'br':
+                multiplicadorRota = 1.5
+            elif rota == 'rb':
+                multiplicadorRota = 1.5
+            break
+        else:
+            print('Você digitou uma rota que não existe')
+            print('Por favor, entre com a rota desejada novamente.')
+            continue
 # Fim da função rotaObjeto()
 
 
 # Incio do Main
-volume = 0
+# variáveis globais
 valor = 0
-peso = 0
-multiplicador = 0
+multiplicadorPeso = 0
+multiplicadorRota = 0
 
-print('------ Bem vindo(a) á Empresa de Logistica Naftaly Benedita Souza S.A. -------')
+print('------ Bem vindo(a) á Empresa de Logística Naftaly Benedita Souza S.A. -------')
 dimensoesObjeto()
 pesoObjeto()
 rotaObjeto()
+print(f'Total a pagar (R$): {valor * multiplicadorPeso * multiplicadorRota} (dimensões: {valor} * peso {multiplicadorPeso} * rota {multiplicadorRota})')
+# Fim do Main
