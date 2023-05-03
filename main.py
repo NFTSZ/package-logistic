@@ -103,7 +103,7 @@ valor = 0
 multiplicadorPeso = 0
 multiplicadorRota = 0
 
-print('------ Bem vindo(a) á Empresa de Logística Naftaly Benedita Souza S.A. -------')
+print('------ Bem vindo(a) á Empresa de Logística Souza S.A. -------')
 dimensoesObjeto()
 pesoObjeto()
 rotaObjeto()
